@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(145deg, #ffd1dc 0%, #ffb6c1 30%, #ff9eb5 70%, #ffc0cb 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Teddy Bear Floating */
+        .floating-bear {
+            position: fixed;
+            pointer-events: none;
+            z-index: 2;
+            font-size: 60px;
+            animation: floatBear 8s ease-in-out infinite;
+            filter: drop-shadow(0 10px 20px rgba(255, 105, 135, 0.3));
+        }
+
+        .bear-1 { top: 5%; left: 2%; animation-delay: 0s; }
+        .bear-2 { bottom: 5%; right: 2%; animation-delay: -2s; font-size: 80px; }
+        .bear-3 { top: 20%; right: 5%; animation-delay: -4s; font-size: 50px; }
+        .bear-4 { bottom: 15%; left: 5%; animation-delay: -6s; font-size: 70px; }
+
+        @keyframes floatBear {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        /* Container Utama */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Opening Section */
+        .opening {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .opening-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 5rem;
+            color: rgb(255, 16, 199);
+            -webkit-text-stroke: 0.5px white;
+            
+            text-shadow: 0 10px 30px rgba(255, 20, 147, 0.3);
+            animation: titleGlow 2s ease-in-out infinite;
+            margin-bottom: 30px;
+        }
+
+        /* @keyframes titleGlow {
+            0%, 100% { filter: drop-shadow(0 0 20px #ff69b4); }
+            50% { filter: drop-shadow(0 0 40px #ff1493); }
+        } */
+
+        .opening-sub {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #8b3a5a;
+            margin-bottom: 50px;
+            animation: fadeInUp 2s;
+        }
+
+        .love-counter {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 80px 20px 80px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .counter-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #ff1493;
+            text-shadow: 0 0 20px white;
+        }
+
+        .counter-text {
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(20px); }
+        }
+
+        /* Cards Section */
+        .section-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            border-radius: 60px 20px 60px 20px;
+            padding: 50px;
+            margin: 50px 0;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 30px 50px rgba(255, 105, 180, 0.2);
+            transition: all 0.5s;
+        }
+
+        .section-card:hover {
+            transform: scale(1.02) translateY(-10px);
+            box-shadow: 0 40px 70px rgba(255, 20, 147, 0.3);
+        }
+
+        .section-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            color: #ff1493;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Countdown Timer */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 30px;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid white;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ff1493;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            color: #8b3a5a;
+            font-weight: 600;
+        }
+
+        /* Album Foto */
+        .photo-album {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .photo-frame {
+            background: white;
+            padding: 15px;
+            border-radius: 30px 10px 30px 10px;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+            transform: rotate(var(--rotate));
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.1);
+            z-index: 20;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px 5px 20px 5px;
+        }
+
+        .photo-caption {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: 600;
+            color: #ff1493;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #ff69b4, #ff1493, #ff69b4);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            padding: 25px;
+            border-radius: 30px 10px 30px 10px;
+            border: 2px solid white;
+            position: relative;
+        }
+
+        .timeline-date {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ff1493;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .timeline-heart {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            background: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px #ff1493;
+        }
+
+        /* Fun Facts */
+        .fun-facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .fact-card {
+            background: rgba(255, 240, 245, 0.5);
+            backdrop-filter: blur(5px);
+            padding: 30px;
+            border-radius: 40px 10px 40px 10px;
+            border: 2px dashed #ff69b4;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .fact-card:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateY(-15px) rotate(2deg);
+        }
+
+        .fact-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        .fact-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #8b3a5a;
+        }
+
+        /* Love Letter */
+        .love-letter {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M50 20 L70 40 L50 60 L30 40 L50 20" fill="%23ff69b4"/></svg>');
+            background-size: 50px;
+            padding: 60px;
+            border-radius: 100px 20px 100px 20px;
+            position: relative;
+        }
+
+        .letter-content {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            line-height: 2;
+            color: #4a2a3a;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            white-space: pre-line;
+        }
+
+        .letter-signature {
+            font-size: 2.5rem;
+            color: #ff1493;
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        /* Evaluasi Form */
+        .evaluation-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            padding: 25px;
+            border-radius: 30px 10px 30px 10px;
+            border: 2px solid white;
+        }
+
+        .question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #8b3a5a;
+            margin-bottom: 15px;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 2rem;
+        }
+
+        .rating i {
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #ffb6c1;
+        }
+
+        .rating i:hover,
+        .rating i.active {
+            color: #ff1493;
+            transform: scale(1.3);
+        }
+
+        .submit-btn {
+            background: linear-gradient(145deg, #ff69b4, #ff1493);
+            border: none;
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border: 2px solid white;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 40px rgba(255, 20, 147, 0.4);
+        }
+
+        /* Surprise Message */
+        .surprise-box {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(145deg, #ffb6c1, #ff9eb5);
+            border-radius: 100px 20px 100px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .surprise-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px #ff1493;
+        }
+
+        .surprise-box h3 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .surprise-box p {
+            font-size: 2rem;
+            color: #ff1493;
+            font-weight: 700;
+        }
+
+        .hidden-message {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            margin-top: 30px;
+            animation: fadeIn 1s;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Audio Control */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            color: #ff1493;
+            border: 2px solid white;
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.3);
+            transition: all 0.3s;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .opening-title {
+                font-size: 3rem;
+            }
+            
+            .opening-sub {
+                font-size: 1.8rem;
+            }
+            
+            .counter-number {
+                font-size: 3rem;
+            }
+            
+            .countdown-box {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 60px;
+            }
+            
+            .timeline-content {
+                width: 100%;
+            }
+            
+            .timeline-heart {
+                left: 30px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            
+            .letter-content {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Audio Background -->
+    <audio id="bgMusic" loop>
+        <source src="lagu.mpeg" type="audio/mpeg">
+        Browser kamu tidak mendukung audio player.
+    </audio>
+
+    <!-- Teddy Bears Floating -->
+    <div class="floating-bear bear-1">🧸</div>
+    <div class="floating-bear bear-2">🧸</div>
+    <div class="floating-bear bear-3">🧸</div>
+    <div class="floating-bear bear-4">🧸</div>
+
+    <!-- Tambahan love dan sparkles (via JS) -->
+    <div id="sparkles-container"></div>
+
+    <!-- Music Control -->
+    <div class="music-control" id="musicControl" onclick="toggleMusic()">
+        <i class="fas fa-music" id="musicIcon"></i>
+    </div>
+
+    <div class="container">
+        <!-- OPENING ROMANTIS -->
+        <section class="opening">
+            <h1 class="opening-title">Happy 1 Month, My Love!</h1>
+            <h2 class="opening-sub">30 hari penuh cerita indah bersamamu</h2>
+            
+            <!-- Counter Waktu Bersama -->
+            <div class="love-counter">
+                <div class="counter-number" id="timeCounter">0 Hari</div>
+                <div class="counter-text">Kita sudah bersama</div>
+                <div style="margin-top: 20px; font-size: 2rem;">🧸❤️🧸</div>
+            </div>
+            
+            <div class="scroll-indicator" onclick="scrollToNext()">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- COUNTDOWN TO TANGGAL 16 -->
+        <section class="section-card" id="countdownSection">
+            <h2 class="section-title">Menuju Tanggal Spesial ✨</h2>
+            <div class="countdown-container">
+                <div class="countdown-box">
+                    <span class="countdown-number" id="days">0</span>
+                    <span class="countdown-label">Hari</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-number" id="hours">0</span>
+                    <span class="countdown-label">Jam</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-number" id="minutes">0</span>
+                    <span class="countdown-label">Menit</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-number" id="seconds">0</span>
+                    <span class="countdown-label">Detik</span>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px; color: #ff1493; font-size: 1.3rem;">Menunggu moment spesial bersama beruang kecilku 🧸</p>
+        </section>
+
+        <!-- ALBUM FOTO -->
+        <section class="section-card">
+            <h2 class="section-title">Our Precious Moments 📸</h2>
+            <div class="photo-album" id="photoAlbum">
+                <!-- Foto akan di-generate via JS -->
+            </div>
+        </section>
+
+        <!-- TIMELINE HUBUNGAN -->
+        <section class="section-card">
+            <h2 class="section-title">Love Timeline ❤️</h2>
+            <div class="timeline" id="timeline">
+                <!-- Timeline akan diisi via JS -->
+            </div>
+        </section>
+
+        <!-- FUN FACTS -->
+        <section class="section-card">
+            <h2 class="section-title">Fun Facts About You 💕</h2>
+            <div class="fun-facts-grid" id="funFacts">
+                <!-- Fun facts akan diisi via JS -->
+            </div>
+        </section>
+
+        <!-- LOVE LETTER -->
+        <section class="section-card love-letter">
+            <h2 class="section-title">Love Letter For You 💌</h2>
+            <div class="letter-content" id="loveLetter">
+                Sayangku...
+                
+                Sebulan sudah kita lewati bersama. Setiap detik bersamamu adalah hadiah terindah yang pernah kumiliki. Senyummu adalah matahariku, tawamu adalah musik terindah di telingaku.
+                
+                Kamu membuat hidupku lebih berwarna, lebih berarti, dan lebih indah dari yang pernah kubayangkan. Terima kasih sudah menjadi bagian terindah dalam hidupku.
+                
+                I love you more than words can say. ❤️
+            </div>
+            <div class="letter-signature">
+                From your teddy bear 🧸
+            </div>
+        </section>
+
+        <!-- EVALUASI RELATIONSHIP -->
+        <section class="section-card">
+            <h2 class="section-title">Relationship Evaluation 📝</h2>
+            <div class="evaluation-form">
+                <div class="form-group">
+                    <div class="question">Seberapa bahagia kamu dengan hubungan kita?</div>
+                    <div class="rating" id="rating1">
+                        <i class="far fa-heart" data-value="1"></i>
+                        <i class="far fa-heart" data-value="2"></i>
+                        <i class="far fa-heart" data-value="3"></i>
+                        <i class="far fa-heart" data-value="4"></i>
+                        <i class="far fa-heart" data-value="5"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="question">Seberapa romantis aku menurutmu?</div>
+                    <div class="rating" id="rating2">
+                        <i class="far fa-heart" data-value="1"></i>
+                        <i class="far fa-heart" data-value="2"></i>
+                        <i class="far fa-heart" data-value="3"></i>
+                        <i class="far fa-heart" data-value="4"></i>
+                        <i class="far fa-heart" data-value="5"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="question">Seberapa besar cinta kamu ke aku?</div>
+                    <div class="rating" id="rating3">
+                        <i class="far fa-heart" data-value="1"></i>
+                        <i class="far fa-heart" data-value="2"></i>
+                        <i class="far fa-heart" data-value="3"></i>
+                        <i class="far fa-heart" data-value="4"></i>
+                        <i class="far fa-heart" data-value="5"></i>
+                    </div>
+                </div>
+                
+                <button class="submit-btn" onclick="submitEvaluation()">
+                    Isi Gform nya ya ❤️
+                </button>
+            </div>
+        </section>
+
+        <!-- SURPRISE MESSAGE -->
+        <section class="section-card">
+            <div class="surprise-box" onclick="revealSurprise()">
+                <h3>🎁 Klik untuk Kejutan!</h3>
+                <p>Ada pesan spesial buat kamu...</p>
+                <div id="surpriseMessage" class="hidden-message">
+                    ❤️ I LOVE YOU MORE THAN ANYTHING! ❤️
+                    <br>
+                    Kamu adalah hadiah terindah dalam hidupku!
+                    <br>
+                    🧸🌹💕
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const photoData = [
+    { url: "foto1.jpeg", caption: "Aquarium Date 💑" },
+    { url: "foto2.jpeg", caption: "Musyang Easa" },
+    { url: "foto3.jpeg", caption: "Sweet Moments 🍦" },
+    { url: "foto4.jpeg", caption: "Sunset Together 🌅" },
+    { url: "foto5.jpeg", caption: "Movie Date ☕" },
+    { url: "foto6.jpeg", caption: "Our Adventure 🏞️" }
+];
+
+        const timelineData = [
+            { date: "04 Des 2025", event: "First Date 💕", desc: "Fotbar Pertama" },
+            { date: "21 Jan 2026", event: "First Date", desc: "Aquarium Date" },
+            { date: "16 Feb 2024", event: "Jadian 💑", desc: "Kamu bilang 'Iya' dan dunia terasa sempurna" },
+        ];
+
+        const funFactsData = [
+            { fact: "Kamu paling cantik saat tersenyum", icon: "😊" },
+            { fact: "Kamu wangi selalu", icon: "🌸" },
+            { fact: "Kamu suka sekali sama makanan pedas", icon: "🧸" },
+            { fact: "Mata kamu bersinar seperti bintang", icon: "✨" },
+            { fact: "Tawamu itu musik favorit aku", icon: "🎵" },
+            { fact: "Kamu selalu bikin hari aku cerah", icon: "☀️" }
+        ];
+
+        // Hitung waktu bersama
+        function updateTimeCounter() {
+            const startDate = new Date('2026-02-16'); // Ganti dengan tanggal mulai
+            const today = new Date();
+            const diffTime = Math.abs(today - startDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            document.getElementById('timeCounter').innerHTML = diffDays + ' Hari';
+        }
+
+        // Countdown ke tanggal 16 bulan depan
+        function updateCountdown() {
+            const now = new Date();
+            let nextDate = new Date(now.getFullYear(), now.getMonth(), 16);
+            
+            if (now.getDate() > 16) {
+                nextDate.setMonth(nextDate.getMonth() + 1);
+            }
+            
+            const diff = nextDate - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').innerHTML = days;
+            document.getElementById('hours').innerHTML = hours;
+            document.getElementById('minutes').innerHTML = minutes;
+            document.getElementById('seconds').innerHTML = seconds;
+        }
+
+        // Generate Photo Album
+        function generatePhotoAlbum() {
+            const album = document.getElementById('photoAlbum');
+            photoData.forEach((photo, index) => {
+                const rotate = (Math.random() * 6 - 3).toFixed(1);
+                const photoFrame = document.createElement('div');
+                photoFrame.className = 'photo-frame';
+                photoFrame.style.setProperty('--rotate', rotate + 'deg');
+                photoFrame.innerHTML = `
+                    <img src="${photo.url}?w=400&h=300&fit=crop" alt="${photo.caption}">
+                    <div class="photo-caption">${photo.caption}</div>
+                `;
+                album.appendChild(photoFrame);
+            });
+        }
+
+        // Generate Timeline
+        function generateTimeline() {
+            const timeline = document.getElementById('timeline');
+            timelineData.forEach((item, index) => {
+                const timelineItem = document.createElement('div');
+                timelineItem.className = 'timeline-item';
+                timelineItem.innerHTML = `
+                    <div class="timeline-content">
+                        <div class="timeline-date">${item.date}</div>
+                        <h3 style="color: #ff1493; margin: 10px 0;">${item.event}</h3>
+                        <p>${item.desc}</p>
+                    </div>
+                    <div class="timeline-heart">
+                        <i class="fas fa-heart" style="color: #ff1493;"></i>
+                    </div>
+                `;
+                timeline.appendChild(timelineItem);
+            });
+        }
+
+        // Generate Fun Facts
+        function generateFunFacts() {
+            const factsGrid = document.getElementById('funFacts');
+            funFactsData.forEach((item) => {
+                const factCard = document.createElement('div');
+                factCard.className = 'fact-card';
+                factCard.innerHTML = `
+                    <div class="fact-icon">${item.icon}</div>
+                    <div class="fact-text">${item.fact}</div>
+                `;
+                factsGrid.appendChild(factCard);
+            });
+        }
+
+        // Rating System
+        document.querySelectorAll('.rating i').forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = this.parentElement;
+                const value = this.dataset.value;
+                rating.querySelectorAll('i').forEach(s => {
+                    s.classList.remove('fas', 'active');
+                    s.classList.add('far');
+                });
+                for (let i = 0; i < value; i++) {
+                    rating.children[i].classList.remove('far');
+                    rating.children[i].classList.add('fas', 'active');
+                }
+            });
+        });
+
+        // Submit Evaluation dengan link Google Form
+        function submitEvaluation() {
+            const ratings = document.querySelectorAll('.rating .fas.active').length;
+            if (ratings < 15) {
+                alert('Please rate all questions with love! ❤️');
+                return;
+            }
+            
+            // Ganti LINK_GOOGLE_FORM_KAMU dengan link Google Form kamu
+            const googleFormLink = "https://forms.gle/3rVnZt6J2xPw3XJMA"; // GANTI DENGAN LINK FORM KAMU
+            
+            // Buka Google Form di tab baru
+            window.open(googleFormLink, '_blank');
+            
+            alert('❤️ Terima kasih sayang! Aku akan selalu berusaha membuatmu bahagia! ❤️');
+            
+            // Efek spesial
+            createLoveExplosion();
+        }
+
+        // Surprise Message
+        function revealSurprise() {
+            const message = document.getElementById('surpriseMessage');
+            if (message.style.display === 'block') {
+                message.style.display = 'none';
+            } else {
+                message.style.display = 'block';
+                message.style.animation = 'fadeIn 1s';
+                
+                // Tambah efek confetti
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        createHeart();
+                    }, i * 100);
+                }
+            }
+        }
+
+        // Scroll Function
+        function scrollToNext() {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        }
+
+        // Love Explosion Effect
+        function createLoveExplosion() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    createHeart();
+                }, i * 50);
+            }
+        }
+
+        // Create Heart Effect
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = Math.random() * 100 + '%';
+            heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+            heart.style.zIndex = '9999';
+            heart.style.pointerEvents = 'none';
+            heart.style.animation = 'fadeIn 1s, float 2s infinite';
+            heart.style.color = '#ff1493';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 2000);
+        }
+
+        // Music Control
+        let isMusicPlaying = false;
+        const bgMusic = document.getElementById('bgMusic');
+        const musicIcon = document.getElementById('musicIcon');
+
+        function toggleMusic() {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                musicIcon.classList.remove('fa-pause');
+                musicIcon.classList.add('fa-music');
+            } else {
+                bgMusic.play().catch(e => console.log("Audio play failed:", e));
+                musicIcon.classList.remove('fa-music');
+                musicIcon.classList.add('fa-pause');
+            }
+            isMusicPlaying = !isMusicPlaying;
+        }
+
+        // Auto play music when page loads (try to play)
+        window.addEventListener('load', function() {
+            bgMusic.volume = 0.3; // Set volume to 30%
+            bgMusic.play().then(() => {
+                isMusicPlaying = true;
+                musicIcon.classList.remove('fa-music');
+                musicIcon.classList.add('fa-pause');
+            }).catch(e => {
+                console.log("Auto-play prevented. User must interact first.");
+                // Show message that user needs to click music button
+            });
+        });
+
+        // Inisialisasi semua
+        window.onload = function() {
+            updateTimeCounter();
+            updateCountdown();
+            generatePhotoAlbum();
+            generateTimeline();
+            generateFunFacts();
+            
+            // Update setiap detik
+            setInterval(updateCountdown, 1000);
+            
+            // Efek love jatuh (setiap 2 detik)
+            setInterval(createHeart, 2000);
+        };
+    </script>
+</body>
+</html>
